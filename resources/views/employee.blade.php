@@ -12,14 +12,20 @@
 
             <div class="header">
                 @if ($message=Session::get('success'))
-                    <div class="alert alert-success">
-                        <h4 class="title">   {{ $message }}</h4></div>  
+                <div class="alert alert-success" role="alert"><h5>{{ $message }} 
+                    
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                </h5></div>   
+
                 @elseif ($message=Session::get('info'))
-                    <div class="alert alert-info">
-                        <h4 class="title">   {{ $message }}</h4></div>
+                <div class="alert alert-info" role="alert"><h5>{{ $message }} 
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                </h5></div>  
+                        
                 @elseif ($message=Session::get('danger'))
-                    <div class="alert alert-danger">
-                        <h4 class="title">   {{ $message }}</h4></div>
+                <div class="alert alert-danger" role="alert"><h5><i class="fa fa-check" aria-hidden="true"></i> {{ $message }} 
+                <button type="button" class="close" data-dismiss="alert">x</button>
+                </h5></div> 
 
                 @endif
             </div>
@@ -138,6 +144,60 @@
                                         {{$employee->getDepartmentData->department_name}}
                                         @endif
                                     </td>
+                                    <td>
+                                        <div>
+                                            <a href="employee/edit/{{Crypt::encrypt($employee->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |
+                                             <a href="#!" onclick="document.getElementById('delete-{{$employee->id}}').submit()"
+                                                style="color:red"><i class="fa fa-trash"></i></a> 
+                                                <form action="/employee/delete/{{Crypt::encrypt($employee->id)}}"
+                                                    method="post"
+                                                    onsubmit="return confirm('are you sure?')"
+                                                    id="delete-{{$employee->id}}"
+                                                    >
+                                                    @csrf
+                                                    @method('DELETE')
+                                              </form>
+                                        </div>
+                                    </td>
+                                    </tr>
+                                @endif
+
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-8 col-md-5">
+                <div class="card">
+                    <div class="header">
+                        <h4 class="title">Waiting List </h4>
+                    </div>
+                    <div class="content">
+                        <table class="table">
+                            <tr>
+                                <th>#</th>
+                                <th>Firstname</th>
+                                <th>Lastname</th>
+                                <th>Date of Birth</th>
+                                <th>Job Title</th>
+                                <th>Department</th>
+                                <th>Action</th>
+                            </tr>
+                            <tbody>
+                                @foreach ($employees as $key=> $employee )
+                                @if (is_null($employee->department_id))
+                                <tr>
+                                    <td>{{$key+1}}</td>
+                                    <td>{{$employee->first_name}}</td>
+                                    <td>{{$employee->last_name}}</td>
+                                    <td>{{$employee->date_of_birth}}</td>
+                                    <td>@if (!is_null($employee->job_title_id))
+                                        {{$employee->getJobTitleData->job_title_name}}
+                                    @endif</td>
+                                    <td>{{$employee->department_id}}</td>                 
+                                    
                                     <td>
                                         <div>
                                             <a href="employee/edit/{{Crypt::encrypt($employee->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |

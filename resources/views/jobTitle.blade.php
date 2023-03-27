@@ -11,15 +11,20 @@
                 
                 <div class="header">
                     @if ($message=Session::get('success'))
-                        <div class="alert alert-success">
-                            <h4 class="title">   {{ $message }}</h4></div>  
+                    <div class="alert alert-success" role="alert"><h5>{{ $message }} 
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    </h5></div>   
+    
                     @elseif ($message=Session::get('info'))
-                        <div class="alert alert-info">
-                            <h4 class="title">   {{ $message }}</h4></div>
+                    <div class="alert alert-info" role="alert"><h5>{{ $message }} 
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    </h5></div>  
+                            
                     @elseif ($message=Session::get('danger'))
-                        <div class="alert alert-danger">
-                            <h4 class="title">   {{ $message }}</h4></div>
-
+                    <div class="alert alert-danger" role="alert"><h5>{{ $message }} 
+                    <button type="button" class="close" data-dismiss="alert">x</button>
+                    </h5></div> 
+    
                     @endif
                 </div>
     

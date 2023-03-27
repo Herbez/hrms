@@ -15,7 +15,7 @@
                             <h4 class="title">Edit Employee</h4>
                         </div>
                             <div class="content" >
-                                      <form action="employee/update" method="POST">
+                                      <form action="/employee/update" method="POST">
                                         @csrf
                                 <div class="row">
                                     <div class="col-md-12">
@@ -57,8 +57,15 @@
                                     <div class="form-group">
                                         <label>Job Title </label>
                                         <select  class="form-control border-input" name="job_title">
-                                            <option value="{{$employee->job_title_id}}">
-                                                {{$employee->getJobTitleData->job_title_name}}</option>
+                                            {{-- <option value="{{$employee->job_title_id}}">
+                                                {{$employee->getJobTitleData->job_title_name}}
+                                            </option> --}}
+                                            @if (!is_null($job_titles))
+                                            @foreach ($job_titles as $job_title )
+                                            <option value="{{$job_title->id}}">
+                                            {{$job_title->job_title_name}}</option>
+                                            @endforeach
+                                            @endif
 
                                            
 
@@ -72,11 +79,16 @@
                                     <div class="form-group">
                                         <label>Department  </label>
                                         <select  class="form-control border-input" name="department">
-                                            <option value="{{$employee->department_id}}">
-                                                {{$employee->getDepartmentData->department_name}}</option>
-                                            
-
-                                            
+                                            {{-- <option value="{{$employee->department_id}}">
+                                                {{$employee->getDepartmentData->department_name}}
+                                            </option> --}}
+                                            @if (!is_null($departments))
+                                            @foreach ($departments as $department )
+                                            <option value="{{$department->id}}">
+                                            {{$department->department_name}}</option>
+                                            @endforeach
+                                            @endif
+                                    
                                         </select>
                                     </div>
                                 </div>

@@ -54,8 +54,13 @@ class EmployeeController extends Controller
     }
 
     function editEmployee($id){
+        $job_titles=JobTitle::all();
+        $departments=Department::all();
         return view('edit-employee',[
-            'employee'=>Employee::findOrFail(Crypt::decrypt($id))
+            'employee'=>Employee::findOrFail(Crypt::decrypt($id)),
+            'job_titles'=>$job_titles,
+            'departments'=>$departments,
+        
         ]);
     }
 
