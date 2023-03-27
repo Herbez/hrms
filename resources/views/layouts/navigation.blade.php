@@ -8,40 +8,40 @@
         </div>
 
         <ul class="nav">
-            <li class="active">
+            <li class="{{ Request::is('/')?'active':'' }} ">
                 <a href="/">
                     <i class="ti-panel"></i>
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li>
-                <a href="/User">
-                    <i class="ti-user"></i>
+            <li class="{{ Request::is('user')?'active':'' }} ">
+                <a href="/user">
+                    <i class="fa fa-user"></i>
                     <p>User Profile</p>
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('jobTitle')?'active':'' }} ">
                 <a href="/jobTitle">
                     <i class="fa fa-list"></i>
                     <p>Job List</p>
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('department')?'active':'' }} ">
                 <a href="/department">
-                    <i class="ti-view-list-alt"></i>
+                    <i class="fa fa-building"></i>
                     <p>Departments</p>
                 </a>
             </li>
-            <li>
+            <li class="{{ Request::is('employee')?'active':'' }} ">
                 <a href="/employee">
-                    <i class="fa fa-user"></i>
+                    <i class="fa fa-users"></i>
                     <p>Employees</p>
                 </a>
             </li>
            
-            <li>
-                <a href="/Attendance">
-                    <i class="ti-map"></i>
+            <li class="{{ Request::is('attendance')?'active':'' }} ">
+                <a href="/attendance">
+                    <i class="fa fa-clock-o"></i>
                     <p>Attendance</p>
                 </a>
             </li>

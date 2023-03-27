@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 
+
+
 // JobTitle
 Route::get('jobTitle', [JobTitleController::class, 'getAllJobTitle']);
 Route::post('/jobTitle/save', [JobTitleController::class,'saveJobTitle']);

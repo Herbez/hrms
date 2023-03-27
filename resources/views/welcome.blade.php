@@ -15,12 +15,12 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-warning text-center">
-                                    <i class="ti-server"></i>
+                                    <i class="fa fa-user"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Capacity</p>
+                                    <p>Users</p>
                                     105GB
                                 </div>
                             </div>
@@ -28,7 +28,7 @@
                         <div class="footer">
                             <hr />
                             <div class="stats">
-                                <i class="ti-reload"></i> Updated now
+                                <i class="ti-wallet"></i> Updated now
                             </div>
                         </div>
                     </div>
@@ -40,12 +40,12 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-success text-center">
-                                    <i class="ti-wallet"></i>
+                                    <i class="fa fa-building"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Revenue</p>
+                                    <p>Departments</p>
                                     $1,345
                                 </div>
                             </div>
@@ -65,12 +65,12 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-danger text-center">
-                                    <i class="ti-pulse"></i>
+                                    <i class="fa fa-users"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Errors</p>
+                                    <p>Employees</p>
                                     23
                                 </div>
                             </div>
@@ -90,12 +90,12 @@
                         <div class="row">
                             <div class="col-xs-5">
                                 <div class="icon-big icon-info text-center">
-                                    <i class="ti-twitter-alt"></i>
+                                    <i class="fa fa-list"></i>
                                 </div>
                             </div>
                             <div class="col-xs-7">
                                 <div class="numbers">
-                                    <p>Followers</p>
+                                    <p>Job Titles</p>
                                     +45
                                 </div>
                             </div>
