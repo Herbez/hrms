@@ -6,8 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\JobTitle;
 use Illuminate\Support\Facades\Crypt;
  
-class JobTitleController extends Controller
-{
+class JobTitleController extends Controller 
+{ 
     //
     function getAllJobTitle(){
         
@@ -16,6 +16,11 @@ class JobTitleController extends Controller
     }
 
     function saveJobTitle(Request $request){
+        $validated = $request->validate([
+            'job_title_name'=>'required',
+            'description'=>'required',
+        ]);
+
         JobTitle::create([
             'job_title_name'=>$request->title,
             'description'=>$request->description,

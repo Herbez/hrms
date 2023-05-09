@@ -16,9 +16,9 @@ return new class extends Migration
             $table->string('first_name',50)->nullable();
             $table->string('last_name',50)->nullable();
             $table->date('date_of_birth')->nullable();
-            $table->string('marks',10)->default('0');
             $table->foreignId('job_title_id')->constrained('job_titles','id');
             $table->foreignId('department_id')->constrained('departments','id')->cascadeOnDelete();
+            $table->string('marks',100)->default('0');
             $table->timestamps();
         });
     }

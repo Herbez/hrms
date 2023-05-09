@@ -2,8 +2,8 @@
 
     <div class="sidebar-wrapper">
         <div class="logo">
-            <a href="http://www.creative-tim.com" class="simple-text">
-                Creative Tim
+            <a href="#" class="simple-text">
+                HRMS
             </a>
         </div>
 
@@ -14,10 +14,10 @@
                     <p>Dashboard</p>
                 </a>
             </li>
-            <li class="{{ Request::is('user')?'active':'' }} ">
-                <a href="/user">
+            <li class="{{ Request::is('User')?'active':'' }} ">
+                <a href="/User">
                     <i class="fa fa-user"></i>
-                    <p>User Profile</p>
+                    <p>Users</p>
                 </a>
             </li>
             <li class="{{ Request::is('jobTitle')?'active':'' }} ">

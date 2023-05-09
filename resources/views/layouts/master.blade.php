@@ -13,17 +13,17 @@
 
 
     <!-- Bootstrap core CSS     -->
-    <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet" />
+    <link href="assets/css/bootstrap.min.css" rel="stylesheet" />
 
     <!-- Animation library for notifications   -->
-    <link href="{{asset('assets/css/animate.min.css')}}" rel="stylesheet"/>
+    <link href="assets/css/animate.min.css" rel="stylesheet"/>
 
     <!--  Paper Dashboard core CSS    -->
-    <link href="{{asset('assets/css/paper-dashboard.css')}}" rel="stylesheet"/>
+    <link href="assets/css/paper-dashboard.css" rel="stylesheet"/>
 
 
     <!--  CSS for Demo Purpose, don't include it in your project     -->
-    <link href="{{asset('assets/css/demo.css" rel="stylesheet')}}" />
+    <link href="assets/css/demo.css" rel="stylesheet" />
 
 
     <!--  Fonts and icons     -->
@@ -82,7 +82,7 @@
 	<!-- Paper Dashboard DEMO methods, don't include it in your project! -->
 	<script src="assets/js/demo.js"></script>
 
-	<script type="text/javascript">
+	{{-- <script type="text/javascript">
     	$(document).ready(function(){
 
         	demo.initChartist();
@@ -96,8 +96,8 @@
                 timer: 4000
             });
 
-    	});
-	</script>
+    	}); 
+	</script> --}}
 
 {{-- alter message timeout --}}
 <script type="text/javascript">

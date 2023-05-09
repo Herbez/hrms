@@ -8,7 +8,7 @@ use App\Models\Department;
 
 class DepartmentController extends Controller
 {
-    //
+    // 
     public function getAllDepartments(){
 
         $data = Department::all();
@@ -16,6 +16,11 @@ class DepartmentController extends Controller
     }
 
     public function saveDepartment(Request $request){
+        $validated = $request->validate([
+            'department_name'=>'required',
+            'description'=>'required',
+        ]);
+
         Department::create([
             'department_name'=>$request->department_name,
             'description'=>$request->description,

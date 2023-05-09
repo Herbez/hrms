@@ -12,17 +12,17 @@
                 
                 <div class="header">
                     @if ($message=Session::get('success'))
-                    <div class="alert alert-success" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-success" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }} 
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div>   
     
                     @elseif ($message=Session::get('info'))
-                    <div class="alert alert-info" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-info" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }} 
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div>  
                             
                     @elseif ($message=Session::get('danger'))
-                    <div class="alert alert-danger" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-danger" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }} 
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div> 
     
@@ -36,13 +36,18 @@
                         </div>
                         
                         <div class="content">
-                            <form action="/department/save" method="POST">
+                            <form action="/department/save" method="POST" enctype="multipart/form-data">
                                 @csrf
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="form-group">
                                             <label>Name</label>
-                                            <input type="text" class="form-control border-input" name="dep_name">
+                                            <input type="text" class="form-control border-input" name="department_name">
+                                            @error('department_name')
+                                                <span class="text-danger"  role="alert">
+                                                    {{$message}} 
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -52,6 +57,11 @@
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea rows="5" class="form-control border-input" name="description"></textarea>
+                                            @error('description')
+                                                <span class="text-danger"  role="alert">
+                                                    {{$message}} 
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -87,8 +97,9 @@
                                             <td> {{ $depart->department_name }} </td>
                                             <td> {{ $depart->description }} </td>
                                             <td>
-                                                <a href={{"department/edit/".$depart->id }} style="color:blue"><i class="fa fa-pencil"></i></a> |
-                                               <a href={{"department/delete/".$depart->id }} style="color:red"> <i class="fa fa-trash"></i></a>
+                                                <a href={{"department/edit/".$depart->id }}  class="btn btn-md btn-primary " style="margin-right: .3rem">Edit</a>
+                                               <a href={{"department/delete/".$depart->id }} class="btn btn-md btn-danger">Delete</a>
+                                               
                                             </td>
                                         </tr>
                                     @endforeach

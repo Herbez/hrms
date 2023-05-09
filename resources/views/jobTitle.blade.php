@@ -11,17 +11,17 @@
                 
                 <div class="header">
                     @if ($message=Session::get('success'))
-                    <div class="alert alert-success" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-success" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }}
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div>   
     
                     @elseif ($message=Session::get('info'))
-                    <div class="alert alert-info" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-info" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }} 
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div>  
                             
                     @elseif ($message=Session::get('danger'))
-                    <div class="alert alert-danger" role="alert"><h5>{{ $message }} 
+                    <div class="alert alert-danger" style="width: 39%; height:10%; margin-left:17px;" role="alert"><h5>{{ $message }} 
                     <button type="button" class="close" data-dismiss="alert">x</button>
                     </h5></div> 
     
@@ -43,6 +43,11 @@
                                         <div class="form-group">
                                             <label>Title</label>
                                             <input type="text" class="form-control border-input" name="title">
+                                            @error('job_title_name')
+                                                <span class="text-danger"  role="alert">
+                                                    {{$message}} 
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -52,6 +57,11 @@
                                         <div class="form-group">
                                             <label>Description</label>
                                             <textarea rows="5" class="form-control border-input" name="description"></textarea>
+                                            @error('description')
+                                                <span class="text-danger"  role="alert">
+                                                    {{$message}} 
+                                                </span>
+                                            @enderror
                                         </div>
                                     </div>
                                 </div>
@@ -87,7 +97,7 @@
                                             <td> {{ $job_title->job_title_name }} </td>
                                             <td> {{ $job_title->description }} </td>
                                             <td>
-                                             <a href="jobTitle/edit/{{Crypt::encrypt($job_title->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |
+                                             {{-- <a href="jobTitle/edit/{{Crypt::encrypt($job_title->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |
                                              <a href="#!" onclick="document.getElementById('delete-{{$job_title->id}}').submit()"
                                                 style="color:red"><i class="fa fa-trash"></i></a> 
                                                 <form action="/jobTitle/delete/{{Crypt::encrypt($job_title->id)}}"
@@ -97,7 +107,11 @@
                                                     >
                                                     @csrf
                                                     @method('DELETE')
-                                              </form>
+                                              </form> --}}
+                                              <div style="display: inline-flex;">
+                                                <a href="/jobTitle/edit/{{Crypt::encrypt($job_title->id)}}" class="btn btn-md btn-primary " style="margin-right: .3rem">Edit</a>
+                                                <a href="/jobTitle/delete/{{Crypt::encrypt($job_title->id)}}" class="btn btn-md btn-danger">Delete</a>
+                                            </div>
                                               
                                             </td>
                                         </tr>

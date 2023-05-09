@@ -4,6 +4,7 @@
 
 @section('title','DASHBOARD')
 
+
 @section('contents')
 
 <div class="content">
@@ -21,7 +22,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Users</p>
-                                    105GB
+                                    {{ number_format($count_user) }}
                                 </div>
                             </div>
                         </div>
@@ -46,7 +47,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Departments</p>
-                                    $1,345
+                                    {{ number_format($count_department) }}
                                 </div>
                             </div>
                         </div>
@@ -71,7 +72,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Employees</p>
-                                    23
+                                    {{ number_format($count_employee) }}
                                 </div>
                             </div>
                         </div>
@@ -96,7 +97,7 @@
                             <div class="col-xs-7">
                                 <div class="numbers">
                                     <p>Job Titles</p>
-                                    +45
+                                    {{ number_format($count_job_title) }}
                                 </div>
                             </div>
                         </div>

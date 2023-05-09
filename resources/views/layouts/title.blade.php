@@ -11,32 +11,25 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-panel"></i>
-                        <p>Stats</p>
-                    </a>
-                </li>
                 <li class="dropdown">
                       <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="ti-bell"></i>
-                            <p class="notification">5</p>
-                            <p>Notifications</p>
+                            <i class="fa fa-user"></i>
+                            {{-- <p class="notification">5</p> --}}
+                            <p>{{ Auth::user()->name }}</p>
                             <b class="caret"></b>
                       </a>
                       <ul class="dropdown-menu">
-                        <li><a href="#">Notification 1</a></li>
-                        <li><a href="#">Notification 2</a></li>
-                        <li><a href="#">Notification 3</a></li>
-                        <li><a href="#">Notification 4</a></li>
-                        <li><a href="#">Another notification</a></li>
+                        <li><a href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            Logout</a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            @csrf
+                        </form>
+                        </li>
+                        
                       </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-settings"></i>
-                        <p>Settings</p>
-                    </a>
                 </li>
             </ul>
 

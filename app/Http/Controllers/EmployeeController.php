@@ -6,9 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\JobTitle;
-
-use Carbon\Carbon;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Crypt;
 
 
@@ -16,8 +13,8 @@ class EmployeeController extends Controller
 {
     //
     function getAllEmployee(){
-        // $employees=Employee::with('getDepartmentData','getJobTitleData')->whereDate('updated_at','!=',Carbon::today()->format("Y-m-d"))->get();
-        $employees=Employee::with('getDepartmentData','getJobTitleData')->get();
+       
+        $employees=Employee::with('getDepartmentData','getJobTitleData','getAttendenceData')->get();
         $job_titles=JobTitle::all();
         $departments=Department::all();
         return view('employee',[
@@ -37,6 +34,14 @@ class EmployeeController extends Controller
     }
 
     function saveEmployee(Request $request){
+        $validated = $request->validate([
+            'first_name'=>'required',
+            'last_name'=>'required',
+            'date_of_birth'=>'required',
+            'job_title'=>'required',
+            'department'=>'required',
+        ]);
+
         Employee::create([
         'first_name'=> $request->first_name,
         'last_name'=> $request->last_name,
