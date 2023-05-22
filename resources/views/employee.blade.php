@@ -6,30 +6,33 @@
 
 @section('contents')
 
-<div class="content"> 
+{{-- <i class="fa fa-pencil"></i>
+<i class="fa fa-trash"></i> --}}
+
+<div class="content">
     <div class="container-fluid">
         <div class="row">
 
             <div class="header" >
                 @if ($message=Session::get('success'))
-                <div class="alert alert-success" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }} 
-                    
+                <div class="alert alert-success" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }}
+
                 <button type="button" class="close" data-dismiss="alert">x</button>
-                </h5></div>   
+                </h5></div>
 
                 @elseif ($message=Session::get('info'))
-                <div class="alert alert-primary" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }} 
+                <div class="alert alert-primary" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }}
                 <button type="button" class="close" data-dismiss="alert">x</button>
-                </h5></div>  
-                        
+                </h5></div>
+
                 @elseif ($message=Session::get('danger'))
-                <div class="alert alert-danger" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }} 
+                <div class="alert alert-danger" style="width: 31%; height:10%; margin-left:16px;" role="alert"><h5>{{ $message }}
                 <button type="button" class="close" data-dismiss="alert">x</button>
-                </h5></div> 
+                </h5></div>
 
                 @endif
             </div>
-                
+
                 <div class="col-lg-4 col-md-5">
                     <div class="card">
                             <div class="header">
@@ -45,7 +48,7 @@
                                             <input type="text" class="form-control border-input" name="first_name">
                                             @error('first_name')
                                                 <span class="text-danger"  role="alert">
-                                                    {{$message}} 
+                                                    {{$message}}
                                                 </span>
                                             @enderror
                                         </div>
@@ -58,7 +61,7 @@
                                     <input type="text" class="form-control border-input" name="last_name">
                                     @error('last_name')
                                         <span class="text-danger"  role="alert">
-                                            {{$message}} 
+                                            {{$message}}
                                         </span>
                                     @enderror
                                 </div>
@@ -71,7 +74,7 @@
                                     <input type="date" class="form-control border-input" name="date_of_birth">
                                     @error('date_of_birth')
                                         <span class="text-danger"  role="alert">
-                                            {{$message}} 
+                                            {{$message}}
                                         </span>
                                     @enderror
                                 </div>
@@ -97,7 +100,7 @@
                                         </select>
                                         @error('job_title')
                                         <span class="text-danger"  role="alert">
-                                            {{$message}} 
+                                            {{$message}}
                                         </span>
                                     @enderror
                                     </div>
@@ -119,8 +122,8 @@
                                         </select>
                                         @error('department')
                                         <span class="text-danger"  role="alert">
-                                            {{$message}} 
-                                        </span> 
+                                            {{$message}}
+                                        </span>
                                     @enderror
                                     </div>
                                 </div>
@@ -136,6 +139,7 @@
                     </div>
                 </div>
             </div>
+
 
             <div class="col-lg-8 col-md-5">
                 <div class="card">
@@ -171,17 +175,6 @@
                                     </td>
                                     <td>
                                         <div>
-                                            {{-- <a href="employee/edit/{{Crypt::encrypt($employee->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |
-                                             <a href="#!" onclick="document.getElementById('delete-{{$employee->id}}').submit()"
-                                                style="color:red"><i class="fa fa-trash"></i></a> 
-                                                <form action="/employee/delete/{{Crypt::encrypt($employee->id)}}"
-                                                    method="post"
-                                                    onsubmit="return confirm('are you sure?')"
-                                                    id="delete-{{$employee->id}}"
-                                                    >
-                                                    @csrf
-                                                    @method('DELETE')
-                                              </form> --}}
                                               <div style="display: inline-flex;">
                                                 <a href="employee/edit/{{Crypt::encrypt($employee->id)}}" class="btn btn-md btn-primary " style="margin-right: .3rem">Edit</a>
                                                 <a href="/employee/delete/{{Crypt::encrypt($employee->id)}}" class="btn btn-md btn-danger">Delete</a>
@@ -225,22 +218,9 @@
                                     <td>@if (!is_null($employee->job_title_id))
                                         {{$employee->getJobTitleData->job_title_name}}
                                     @endif</td>
-                                    <td>{{$employee->department_id}}</td>                 
-                                    
+                                    <td>{{$employee->department_id}}</td>
+
                                     <td>
-                                        {{-- <div>
-                                            <a href="employee/edit/{{Crypt::encrypt($employee->id)}}" style="color:blue"><i class="fa fa-pencil"></i></a> |
-                                             <a href="#!" onclick="document.getElementById('delete-{{$employee->id}}').submit()"
-                                                style="color:red"><i class="fa fa-trash"></i></a> 
-                                                <form action="/employee/delete/{{Crypt::encrypt($employee->id)}}"
-                                                    method="post"
-                                                    onsubmit="return confirm('are you sure?')"
-                                                    id="delete-{{$employee->id}}"
-                                                    >
-                                                    @csrf
-                                                    @method('DELETE')
-                                              </form>
-                                        </div> --}}
                                         <div style="display: inline-flex;">
                                             <a href="/employee/edit/{{Crypt::encrypt($employee->id)}}" class="btn btn-md btn-primary " style="margin-right: .3rem">Edit</a>
                                             <a href="/employee/delete/{{Crypt::encrypt($employee->id)}}" class="btn btn-md btn-danger">Delete</a>

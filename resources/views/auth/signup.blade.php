@@ -1,6 +1,3 @@
-@extends('layouts.app')
-
-@section('content')
 <div class="container-scroller">
     <div class="container-fluid page-body-wrapper">
       <div class="row">
@@ -49,7 +46,7 @@
 
                 <p class="sign-up">Already have an Account?
                     @if (Route::has('login'))
-                        <a class="text-decoration-none" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        <a href="{{ route('login') }}">{{ __('Login') }}</a>
                     @endif
                 </p>
               </form>
@@ -62,5 +59,3 @@
     </div>
     <!-- page-body-wrapper ends -->
   </div>
-
-@endsection

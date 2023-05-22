@@ -13,7 +13,7 @@ class EmployeeController extends Controller
 {
     //
     function getAllEmployee(){
-       
+
         $employees=Employee::with('getDepartmentData','getJobTitleData','getAttendenceData')->get();
         $job_titles=JobTitle::all();
         $departments=Department::all();
@@ -21,10 +21,10 @@ class EmployeeController extends Controller
             'employees'=>$employees,
             'job_titles'=>$job_titles,
             'departments'=>$departments,
-            
+
         ]);
 
-        
+
         return view('employees',[
             'employee'=>$employees,
             'jobs'=>$jobs,
@@ -39,7 +39,7 @@ class EmployeeController extends Controller
             'last_name'=>'required',
             'date_of_birth'=>'required',
             'job_title'=>'required',
-            'department'=>'required',
+
         ]);
 
         Employee::create([
@@ -48,7 +48,7 @@ class EmployeeController extends Controller
         'date_of_birth'=> $request->date_of_birth,
         'job_title_id'=> $request->job_title,
         'department_id'=> $request->department,
-             
+
         ]);
         return redirect('/employee')->with('success','Employee Added Successfully !');
     }
@@ -65,7 +65,7 @@ class EmployeeController extends Controller
             'employee'=>Employee::findOrFail(Crypt::decrypt($id)),
             'job_titles'=>$job_titles,
             'departments'=>$departments,
-        
+
         ]);
     }
 
@@ -76,10 +76,10 @@ class EmployeeController extends Controller
             'date_of_birth'=> $request->date_of_birth,
             'job_title_id'=> $request->job_title,
             'department_id'=> $request->department,
-                 
+
             ]);
             return redirect('/employee')->with('info','Employee Updated Successfully !');
     }
 
 
-}   
+}

@@ -5,7 +5,7 @@
 @section('title','DASHBOARD')
 
 
-@section('contents')
+@section('contents') 
 
 <div class="content">
     <div class="container-fluid">
