@@ -12,16 +12,7 @@ use Illuminate\Support\Facades\Crypt;
 
 class UserController extends Controller
 {
-    function getAllData(){
-        return view('welcome',[
-            'users'=>User::All(),
-            'count_user'=>User::count(),
-            'count_department'=>Department::count(),
-            'count_job_title'=>JobTitle::count(),
-            'count_employee'=>Employee::count(),
-        
-                ]);
-            }
+
     function getAllUser(){
         return view('user',['users'=>User::all()]);
     }
@@ -30,5 +21,5 @@ class UserController extends Controller
         User::findOrFail(Crypt::decrypt($id))->delete();
         return redirect('/User')->with('danger','User Deleted Successfully !');
     }
-    
+
 }

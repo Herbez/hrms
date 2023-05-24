@@ -6,6 +6,7 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AttendanceController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,8 +21,11 @@ use App\Http\Controllers\AttendanceController;
 
 Auth::routes();
 
+//Admin page
+Route::get('/', [HomeController::class, 'index'])->middleware('auth');
+
 //Home page
-Route::get('/', [UserController::class,'getAllData'])->middleware('auth');
+Route::get('/home', [HomeController::class, 'index'])->middleware('auth');
 
 //Users
 Route::get('/User', [UserController::class, 'getAllUser'])->middleware('auth');
@@ -57,7 +61,3 @@ Route::get('/attendance/absent/{id}', [ AttendanceController::class,'absent'])->
 Route::get('/attendance/pay/{id}', [ AttendanceController::class,'pay'])->middleware('auth');
 
 
-
-// Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

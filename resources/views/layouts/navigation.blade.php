@@ -38,14 +38,14 @@
                     <p>Employees</p>
                 </a>
             </li>
-           
+
             <li class="{{ Request::is('attendance')?'active':'' }} ">
                 <a href="/attendance">
                     <i class="fa fa-clock-o"></i>
                     <p>Attendance</p>
                 </a>
             </li>
-          
+
         </ul>
     </div>
 </div>

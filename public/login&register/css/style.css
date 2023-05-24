@@ -7483,7 +7483,7 @@ article, aside, dialog, figcaption, figure, footer, header, hgroup, main, nav, s
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.5;
   color: #000;
@@ -14320,22 +14320,22 @@ pre {
   background: url("../images/img_bg.jpg") no-repeat center center;
   background-size: cover; }
   .auth-pages .forgot-pass {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     text-align: right; }
   .auth-pages button {
-    font-size: 0.875rem; }
+    font-size: 1.25rem; }
     .auth-pages button.enter-btn {
       height: 45px;
       margin-bottom: 28px; }
   .auth-pages .sign-up {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     text-align: center;
     margin-top: 30px;
     margin-bottom: 0; }
     .auth-pages .sign-up a {
       color: #00bbd9; }
   .auth-pages .terms {
-    font-size: 0.875rem;
+    font-size: 1.25rem;
     text-align: center;
     margin-top: 23px;
     margin-bottom: 0; }
@@ -15166,7 +15166,7 @@ select.form-control {
   padding: .4375rem .75rem; }
 
 .form-group label {
-  font-size: 0.875rem;
+  font-size: 1.05rem;
   line-height: 1;
   vertical-align: top; }
 

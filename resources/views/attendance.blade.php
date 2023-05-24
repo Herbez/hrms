@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('headtitle','Attendance')
+
 @section('title',' Employees Attendance')
 
 @section('contents')
@@ -69,6 +71,7 @@
                             </tr>
                             <tbody>
                                 @foreach ($emp_money as  $key=> $emp_pay )
+                                @if (!is_null($emp_pay->department_id))
                                 <tr>
                                     <td>{{$key+1}}</td>
                                     <td>{{$emp_pay->first_name}}</td>
@@ -88,6 +91,7 @@
                                         <a href="/attendance/pay/{{$emp_pay->id}}" class="btn btn-sm btn-primary " style="margin-right: .3rem">Paid</a>
                                         </div></td>
                                     </tr>
+                                    @endif
                                 @endforeach
                             </tbody>
                         </table>

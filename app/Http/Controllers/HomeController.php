@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Employee;
 use App\Models\Department;
 use App\Models\JobTitle;
@@ -27,13 +28,20 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome',[
-            'user'=>User::All(),
-            'count_user'=>User::count(),
-            'count_department'=>Department::count(),
-            'count_job_title'=>JobTitle::count(),
-            'count_employee'=>Employee::count(),
-        
+        $usertype=Auth::user()->usertype;
+
+        if ($usertype=='1') {
+
+            return view('adminPanel',[
+                'user'=>User::All(),
+                'count_user'=>User::count(),
+                'count_department'=>Department::count(),
+                'count_job_title'=>JobTitle::count(),
+                'count_employee'=>Employee::count(),
                 ]);
+        }else {
+            return view('home');
+
+        }
     }
 }
